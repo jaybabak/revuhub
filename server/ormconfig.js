@@ -1,6 +1,6 @@
-const dotenv = require('dotenv');
+import { config } from 'dotenv';
 
-dotenv.config();
+config();
 
 const {
   DB_TYPE,
@@ -11,13 +11,11 @@ const {
   DB_DATABASE,
 } = process.env;
 
-module.exports = {
-  type: DB_TYPE,
-  host: DB_HOST,
-  port: DB_PORT,
-  username: DB_USERNAME,
-  password: DB_PASSWORD,
-  database: DB_DATABASE,
-  migrations: [__dirname + '/src/migrations/*{.ts,.js}'],
-  entities: [__dirname + '/src/**/*.entity.{ts,js}'],
-};
+export const type = DB_TYPE;
+export const host = DB_HOST;
+export const port = DB_PORT;
+export const username = DB_USERNAME;
+export const password = DB_PASSWORD;
+export const database = DB_DATABASE;
+export const migrations = [__dirname + '/src/migrations/*{.ts,.js}'];
+export const entities = [__dirname + '/src/**/*.entity.{ts,js}'];
